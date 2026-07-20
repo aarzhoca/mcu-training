@@ -1,0 +1,89 @@
+build:
+  generated-by: csolution version 2.9.0
+  solution: Template.csolution.yml
+  project: Template.cproject.yml
+  context: Template.Release+ARMCLANG
+  compiler: AC6
+  device: Nuvoton::M032SE3AE
+  device-pack: Nuvoton::NuMicroM0_DFP@1.0.2
+  processor:
+    core: Cortex-M0
+  packs:
+    - pack: Nuvoton::NuMicroM0_DFP@1.0.2
+      path: ${CMSIS_PACK_ROOT}/Nuvoton/NuMicroM0_DFP/1.0.2
+  optimize: balanced
+  debug: on
+  misc:
+    ASM:
+      - -masm=auto
+      - -D__MICROLIB
+    C:
+      - -D__MICROLIB
+      - -std=c99
+      - -fno-rtti
+      - -funsigned-char
+      - -fshort-enums
+      - -fshort-wchar
+      - -ffunction-sections
+    CPP:
+      - -xc++
+      - -std=c++98
+      - -fno-rtti
+      - -funsigned-char
+      - -fshort-enums
+      - -fshort-wchar
+      - -ffunction-sections
+    Link:
+      - --library_type=microlib
+      - --map
+      - --load_addr_map_info
+      - --symbols
+      - --info sizes
+      - --info totals
+      - --map --datacompressor=off --info=inline --entry Reset_Handler
+      - --strict
+      - --summary_stderr
+      - --info summarysizes
+      - --diag_suppress=6314
+  add-path:
+    - ../../../Library/CMSIS/Core/Include
+    - ../../../Library/Device/Nuvoton/M031/Include
+    - ../../../Library/StdDriver/inc
+    - ${CMSIS_PACK_ROOT}/Nuvoton/NuMicroM0_DFP/1.0.2/Device/M031/Include
+  add-path-asm:
+    - ${CMSIS_PACK_ROOT}/Nuvoton/NuMicroM0_DFP/1.0.2/Device/M031/Include
+  output-dirs:
+    intdir: tmp
+    outdir: out/Template/ARMCLANG/Release
+    rtedir: RTE
+  output:
+    - type: bin
+      file: Template.bin
+    - type: elf
+      file: Template.axf
+  linker:
+    script: RTE/Device/M032SE3AE/ac6_linker_script.sct.src
+    regions: RTE/Device/M032SE3AE/regions_M032SE3AE.h
+  groups:
+    - group: CMSIS
+      files:
+        - file: ../../../Library/Device/Nuvoton/M031/Source/system_M031Series.c
+          category: sourceC
+        - file: ../../../Library/Device/Nuvoton/M031/Source/ARM/startup_M031Series.c
+          category: sourceC
+    - group: Library
+      files:
+        - file: ../../../Library/StdDriver/src/retarget.c
+          category: sourceC
+        - file: ../../../Library/StdDriver/src/uart.c
+          category: sourceC
+        - file: ../../../Library/StdDriver/src/clk.c
+          category: sourceC
+    - group: User
+      files:
+        - file: ../main.c
+          category: sourceC
+  licenses:
+    - license: <unknown>
+      packs:
+        - pack: Nuvoton::NuMicroM0_DFP@1.0.2
