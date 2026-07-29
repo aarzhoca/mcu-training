@@ -1,6 +1,6 @@
 # MCU Embedded Development Training
 
-An 8-week hands-on embedded firmware training program on the **Nuvoton NuMaker-M031SD** platform (Arm Cortex-M0), mentored by Aaron Zhou.
+An 8-week hands-on embedded firmware training program on the **Nuvoton NuMaker-M031SD** platform (Arm Cortex-M0), mentored by Aaron.
 
 ## Who this is for
 A CE/EE student with basic MCU programming, digital circuits, and Verilog/state-machine background, ramping up to practical, industry-style firmware development.
@@ -11,11 +11,12 @@ A CE/EE student with basic MCU programming, digital circuits, and Verilog/state-
 - **BSP:** Official M031 Series BSP — https://github.com/OpenNuvoton/M031BSP
   - Peripheral examples live in `SampleCode/StdDriver/` (GPIO, UART, TIMER, PWM, ADC, I2C, SPI — everything this program uses)
 - **Docs:** M031 datasheet & Technical Reference Manual — download from nuvoton.com (M031 series product page)
+- **Videos:** Nuvoton NuMicro Level 1 Workshop series — see `docs/videos.md` for the week-by-week mapping
 - **Debug:** On-board Nu-Link2-Me (SWD); no external probe needed
 
 ## How this repo works
 - 📅 **Syllabus:** `docs/syllabus.md` — the full 8-week plan
-- 🖥️ **Training materials:** `docs/slides/` — hands-on training decks; `docs/` — VS Code setup guide
+- 🖥️ **Training materials:** `docs/slides/` — hands-on training decks; `docs/` — VS Code setup guide and workshop video links
 - 📁 **Weekly work:** each `weeks/weekN-*` folder holds that week's exercise code and a `TASKS.md`
 - ✅ **Assignments:** tracked as GitHub **Issues** (one per task), organized on the **Project board**
 - 🔀 **Workflow:** create a branch per task → commit code → open a Pull Request → mentor reviews → merge
@@ -35,6 +36,7 @@ A CE/EE student with basic MCU programming, digital circuits, and Verilog/state-
 
 ## Ground rules
 1. Commit early, commit often — small commits with clear messages.
-2. Every peripheral starts with 20–30 min in the M031 Technical Reference Manual.
+2. Every peripheral starts with 20–30 min in the M031 Technical Reference Manual (and the matching workshop video — see `docs/videos.md`).
 3. Ask questions in the Issue thread so answers are searchable later.
 4. Weekly 30-min check-in: demo, one thing learned, one thing confusing.
+
